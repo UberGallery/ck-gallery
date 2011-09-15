@@ -1,6 +1,6 @@
 /*********************************************
 *  Title:    ck-gallery.php                  *
-*  Version:  .74                             *
+*  Version:  .75                             *
 *  Author:   Chris Kankiewicz                *
 *  Email:    chris@web-geek.net              *
 *  URL:      http://web-geek.net/ck-gallery  *
@@ -14,7 +14,7 @@ Introduction
   manage itself for you. CK-Gallery supports .jpg, .gif & .png image types, and 
   will automatically creates thumbnails on the fly. The main feature of this 
   gallery is it automatically outputs XHTML compliant markup for inclusion on a 
-  webpage. The CK-Gallery will also automatically prune it’s thumbnails, so when 
+  webpage. The CK-Gallery will also automatically prune it's thumbnails, so when 
   you delete an image from the images folder, it will delete the corresponding 
   thumbnail. The gallery also creates a log file for reference and debugging.
   The CK-Gallery is licensed under the GNU General Public License version 3.0.
@@ -65,7 +65,7 @@ Customizing your Gallery
   
   The CK-Gallery comes with style elements already set up, this allows for 
   customization of the look and feel of your gallery.  All you have to do is 
-  add a CSS stylesheet and you’ll be off in no time.
+  add a CSS stylesheet and you'll be off in no time.
 
   This is the typical structure of the HTML output:
 
@@ -122,6 +122,10 @@ Legal Crap
 
 Changelog
 ----------------------------------------
+
+  [ Changes to .75 ]
+
+    - Minor markup output fix
 
   [ Changes to .74 ]
 
