@@ -1,6 +1,6 @@
 /*********************************************
 *  Title:    ck-gallery.php                  *
-*  Version:  .78                             *
+*  Version:  .79                             *
 *  Author:   Chris Kankiewicz                *
 *  Email:    chris@web-geek.net              *
 *  URL:      http://web-geek.net/ck-gallery  *
@@ -122,6 +122,13 @@ Legal Crap
 
 Change Log
 ----------------------------------------
+
+  [ Changes to .79 ]
+
+      - Script will delete thumbnails not of the specified dimensions
+      - File rename algorithm slightly adjusted
+      - Minor markup output fix
+      - Style Sheet tweaks
 
   [ Changes to .78 ]
 
