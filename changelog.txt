@@ -1,10 +1,17 @@
 CK-Gallery Change Log
 ----------------------------------------
 
+  [ Changes to .82 ]
+  
+    - Merged file extension conversion, thumbnail generation and markup output 
+      gerneration into one while() loop, reducing code and overhead slightly
+    - Moved thumbnail cleanup to end of script
+
+
   [ Changes to .81 ]
   
-    - Underscores in alt text and title text are now replaced with spaces
-    - File extension are now removed from alt text and title text
+    - Replaces underscores "_" in alt text and title text with spaces " "
+    - Removes file extension from alt text and title text
 
 
   [ Changes to .80 ]
