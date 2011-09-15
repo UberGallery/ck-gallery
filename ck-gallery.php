@@ -1,4 +1,4 @@
-<?php // CK-Gallery by Chris Kankiewicz <http://wwww.web-geek.com/ck-gallery>
+<?php // CK-Gallery by Chris Kankiewicz <http://www.ChrisKankiewicz.com>
 
   $galleryDir = "gallery";            // Original images directory (No trailing slash!)
   $thumbsDir  = "$galleryDir/thumbs"; // Thumbnails directory (No trailing slash!)
@@ -9,62 +9,8 @@
 
 
   // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
-
-  // START FUNCTIONS
-
-  function createThumb($source,$dest,$thumb_size) {
-  // Create thumbnail, modified from function found on http://www.findmotive.com/tag/php/
-    $size = getimagesize($source);
-    $width = $size[0];
-    $height = $size[1];
-
-    if ($width > $height) {
-      $x = ceil(($width - $height) / 2 );
-      $width = $height;
-    } elseif($height > $width) {
-      $y = ceil(($height - $width) / 2);
-      $height = $width;
-    }
-
-    $new_im = ImageCreatetruecolor($thumb_size,$thumb_size);
-
-    @$imgInfo = getimagesize($source);
-
-    if ($imgInfo[2] == IMAGETYPE_JPEG) {
-      $im = imagecreatefromjpeg($source);
-      imagecopyresampled($new_im,$im,0,0,$x,$y,$thumb_size,$thumb_size,$width,$height);
-      imagejpeg($new_im,$dest,80); // Thumbnail quality (Value from 1 to 100)
-    } elseif ($imgInfo[2] == IMAGETYPE_GIF) {
-      $im = imagecreatefromgif($source);
-      imagecopyresampled($new_im,$im,0,0,$x,$y,$thumb_size,$thumb_size,$width,$height);
-      imagegif($new_im,$dest);
-    } elseif ($imgInfo[2] == IMAGETYPE_PNG) {
-      $im = imagecreatefrompng($source);
-      imagecopyresampled($new_im,$im,0,0,$x,$y,$thumb_size,$thumb_size,$width,$height);
-      imagepng($new_im,$dest);
-    }
-  }
-
-  function isImage($fileName) {
-  // Verifies that a file is an image
-    if ($fileName !== '.' && $fileName !== '..') {
-      @$imgInfo = getimagesize($fileName);
-
-      $imgType = array(
-        IMAGETYPE_JPEG,
-        IMAGETYPE_GIF,
-        IMAGETYPE_PNG,
-      );
-
-      if (in_array($imgInfo[2],$imgType))
-        return true;
-      return false;
-    }
-  }
-
-  // END FUNCTIONS
   
-  $version = "1.1.0"; // File version
+  $version = "1.1.1"; // File version
 
   // Create log file if it does not exist, otherwise open log for writing
   if (!file_exists($logFile)) {
@@ -131,7 +77,7 @@
   }
 
   // Opening markup
-  echo("<!-- Start CK-Gallery v$version - Created by, Chris Kankiewicz [http://web-geek.net/ck-gallery] -->\r\n");
+  echo("<!-- Start CK-Gallery v$version - Created by, Chris Kankiewicz <http://www.ChrisKankiewicz.com> -->\r\n");
   echo("<div id=\"gallery-wrapper\">\r\n  <div id=\"ck-gallery\">\r\n");
 
   for ($x = $imgStart; $x < $imgEnd; $x++) {
@@ -199,22 +145,22 @@
 
     // Previous arrow
     $previousPage = $currentPage - 1;
-    echo("      <li".($currentPage > 1 ? "><a href=\"$pageName?page=$previousPage\">&lt;</a>" : " class=\"inactive\">&lt;")."</li>\r\n");
+    echo("      <li".($currentPage > 1 ? "><a href=\"$pageName?page=$previousPage\" title=\"Previous Page\">&lt;</a>" : " class=\"inactive\">&lt;")."</li>\r\n");
 
     // Page links
     for ($x = 1; $x <= $totalPages; $x++) {
-      echo("      <li".($x == $currentPage ? " class=\"current-page\">$x" : "><a href=\"$pageName?page=$x\">$x</a>")."</li>\r\n");
+      echo("      <li".($x == $currentPage ? " class=\"current-page\">$x" : "><a href=\"$pageName?page=$x\" title=\"Page $x\">$x</a>")."</li>\r\n");
     }
 
     // Next arrow
     $nextPage = $currentPage + 1;
-    echo("      <li".($currentPage < $totalPages ? "><a href=\"$pageName?page=$nextPage\">&gt;</a>" : " class=\"inactive\">&gt;")."</li>\r\n");
+    echo("      <li".($currentPage < $totalPages ? "><a href=\"$pageName?page=$nextPage\" title=\"Next Page\">&gt;</a>" : " class=\"inactive\">&gt;")."</li>\r\n");
 
     echo("    </ul>\r\n");
   }
 
   // Closing markup
-  echo("    <div id=\"credit\">Powered by <a href=\"http://web-geek.net/ck-gallery\" target=\"_blank\">CK-Gallery</a>");
+  echo("    <div id=\"credit\">Powered by <a href=\"http://code.web-geek.net/ck-gallery\" target=\"_blank\">CK-Gallery</a>");
   // Display Thickbox link if site is using Thickbox
   if(file_exists("thickbox.js") || file_exists("thickbox/thickbox.js")) {
     echo(" &amp; <a href=\"http://jquery.com/demo/thickbox\" target=\"_blank\">Thickbox</a></div>\r\n");
@@ -224,11 +170,11 @@
   
   // Version check and notification
   if ($verCheck == "1") {
-    $verInfo = file("http://code.web-geek.net/_version-check/ck-gallery/index.php?ver=$version");
-    $verInfo = implode($verInfo);
+    $verInfo = @file("http://code.web-geek.net/ck-gallery/version-check.php?ver=$version");
+    $verInfo = @implode($verInfo);
     if ($verInfo == "upgrade") {
       echo("    <div class=\"clear\"></div>\r\n");
-      echo("    <div id=\"ck-notice\">A new version of CK-Gallery is availabe. <a href=\"http://sourceforge.net/project/showfiles.php?group_id=242050&package_id=296883\" target=\"_blank\">Get the latest version here</a>.</div>");
+      echo("    <div id=\"ck-notice\">A new version of CK-Gallery is availabe. <a href=\"http://code.web-geek.net/ck-gallery\" target=\"_blank\">Get the latest version here</a>.</div>");
     } elseif ($verInfo == "development") {
       echo("    <div class=\"clear\"></div>\r\n");
       echo("    <div id=\"ck-notice\">This is a development version of CK-Gallery.</div>");
@@ -236,8 +182,64 @@
   }
   
   echo("    <div class=\"clear\"></div>\r\n  </div>\r\n</div>\r\n");
+  echo("<!-- [Page $currentPage of $totalPages] -->\r\n");
   echo("<!-- End CK-Gallery - Licensed under the GNU Public License version 3.0 -->\r\n");
 
   fclose($log); // Close log
+  
+  
+  // *** START FUNCTIONS ***
+
+  function createThumb($source,$dest,$thumb_size) {
+  // Create thumbnail, modified from function found on http://www.findmotive.com/tag/php/
+    $size = getimagesize($source);
+    $width = $size[0];
+    $height = $size[1];
+
+    if ($width > $height) {
+      $x = ceil(($width - $height) / 2 );
+      $width = $height;
+    } elseif($height > $width) {
+      $y = ceil(($height - $width) / 2);
+      $height = $width;
+    }
+
+    $new_im = ImageCreatetruecolor($thumb_size,$thumb_size);
+
+    @$imgInfo = getimagesize($source);
+
+    if ($imgInfo[2] == IMAGETYPE_JPEG) {
+      $im = imagecreatefromjpeg($source);
+      imagecopyresampled($new_im,$im,0,0,$x,$y,$thumb_size,$thumb_size,$width,$height);
+      imagejpeg($new_im,$dest,80); // Thumbnail quality (Value from 1 to 100)
+    } elseif ($imgInfo[2] == IMAGETYPE_GIF) {
+      $im = imagecreatefromgif($source);
+      imagecopyresampled($new_im,$im,0,0,$x,$y,$thumb_size,$thumb_size,$width,$height);
+      imagegif($new_im,$dest);
+    } elseif ($imgInfo[2] == IMAGETYPE_PNG) {
+      $im = imagecreatefrompng($source);
+      imagecopyresampled($new_im,$im,0,0,$x,$y,$thumb_size,$thumb_size,$width,$height);
+      imagepng($new_im,$dest);
+    }
+  }
+
+  function isImage($fileName) {
+  // Verifies that a file is an image
+    if ($fileName !== '.' && $fileName !== '..') {
+      @$imgInfo = getimagesize($fileName);
+
+      $imgType = array(
+        IMAGETYPE_JPEG,
+        IMAGETYPE_GIF,
+        IMAGETYPE_PNG,
+      );
+
+      if (in_array($imgInfo[2],$imgType))
+        return true;
+      return false;
+    }
+  }
+
+  // EOF
 
 ?>

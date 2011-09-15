@@ -1,6 +1,15 @@
 CK-Gallery Change Log
 ----------------------------------------
 
+  [ Changes to 1.1.1 ]
+  
+    - URLs now point to new CK-Gallery page, http://code.web-geek.net/ck-gallery
+    - Error messages will no longer be displayed if the update check can't 
+      connect to the update site
+    - Added title text on pagination link
+    - Moved functions to bottom of file
+    - Minor code chages
+
   [ Changes to 1.1.0 ]
 
     - Added an option to enable update notification (disabled by default)

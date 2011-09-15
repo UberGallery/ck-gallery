@@ -152,7 +152,7 @@ Update Notification
 ----------------------------------------------
 
   To enable the update notification, open ck-gallery.php, find "$verCheck = 0;"
-  and chage this value to 1.  Once done, whenever an update to CK-Gallery is
+  and change this value to 1.  Once done, whenever an update to CK-Gallery is
   available, a message will appear at the bottom of your gallery informing you
   of this new version and providing a link to the new version.
 
