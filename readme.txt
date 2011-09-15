@@ -1,6 +1,6 @@
 /*********************************************
 *  Title:    ck-gallery.php                  *
-*  Version:  .75                             *
+*  Version:  .76                             *
 *  Author:   Chris Kankiewicz                *
 *  Email:    chris@web-geek.net              *
 *  URL:      http://web-geek.net/ck-gallery  *
@@ -123,6 +123,13 @@ Legal Crap
 Changelog
 ----------------------------------------
 
+  [ Changes to .76 ]
+
+    - Check for thickbox.js existance, if it exists will display a link to the 
+      thickbox webpage, if file doesn't exist link will not be display
+    - Added variable for image dimensions
+    - Minor code optimizations
+  
   [ Changes to .75 ]
 
     - Minor markup output fix
