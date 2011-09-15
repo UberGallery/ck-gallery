@@ -14,6 +14,7 @@ CK-Gallery Change Log
     - Integrated rename algorithm into page array loop so it will only rename
       images that are displayed on the current page
     - Thumbnail cleanup algorithm will now only cleanup image files
+    - Added GZip compression to the default index.php
     - Markup output tweaks/changes
     - Default style additions/changes
     - New versioning scheme

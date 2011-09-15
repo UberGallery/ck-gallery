@@ -1,4 +1,4 @@
-<?php
+<?php // CK-Gallery by Chris Kankiewicz <http://wwww.web-geek.com/ck-gallery>
 
   $galleryDir = "gallery";            // Original images directory (No trailing slash!)
   $thumbsDir  = "$galleryDir/thumbs"; // Thumbnails directory (No trailing slash!)
@@ -130,7 +130,7 @@
   }
 
   // Opening markup
-  echo("<!-- Start CK-Gallery v1.0.0 BETA - Created by, Chris Kankiewicz [http://web-geek.net/ck-gallery] -->\r\n");
+  echo("<!-- Start CK-Gallery v1.0.0 - Created by, Chris Kankiewicz [http://web-geek.net/ck-gallery] -->\r\n");
   echo("<div id=\"gallery-wrapper\">\r\n  <div id=\"ck-gallery\">\r\n");
 
   for ($x = $imgStart; $x < $imgEnd; $x++) {

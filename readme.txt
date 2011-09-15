@@ -94,6 +94,22 @@ Install to Pre-Existing Web Page
   7. Refresh the page in your browser and the script should generate thumbnails
      and display your pictures.
 
+  8. (Optional) In order to improve the performance and reduce the bandwidth of
+     your gallery, it's recomended that you enable gzip compression on the page
+     for which your gallery is being displayed. In order to accomplish this,
+     place the following code at the very beginning of the page to which the
+     gallery will be displayed:
+
+     <?php ob_start("ob_gzhandler"); ?>
+
+     and the following to the end of that page:
+
+     <?php ob_flush(); ?>
+
+     These lines must be the very fist and very last things the browser loads or
+     they will cause errors.  See the index.php file included with the gallery
+     for an example of how this code works.
+
 
 Customizing your Gallery
 ----------------------------------------
