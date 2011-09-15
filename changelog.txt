@@ -1,6 +1,14 @@
 CK-Gallery Change Log
 ----------------------------------------
 
+  [ Changes to 1.1.0 ]
+
+    - Added an option to enable update notification (disabled by default)
+    - Moved most in-line CSS into gallery.css reducing generated code
+    - Corrections/changes to the Readme for this version
+    - Other minor style sheet changes
+  
+
   [ Changes to 1.0.1 ]
 
     - Style changes to fix a display bug with the pagination navigation when the

@@ -5,10 +5,10 @@
   $logFile    = "gallery-log.txt";    // Directory/Name of log file
   $thumbSize  = 100;                  // Thumbnail width/height in pixels
   $imgPerPage = 0;                    // Images per page (0 disables pagination)
+  $verCheck   = 0;                    // Set to 1 to enable update notifications
 
 
   // *** DO NOT EDIT ANYTHING BELOW HERE UNLESS YOU ARE A PHP NINJA ***
-
 
   // START FUNCTIONS
 
@@ -63,7 +63,8 @@
   }
 
   // END FUNCTIONS
-
+  
+  $version = "1.1.0"; // File version
 
   // Create log file if it does not exist, otherwise open log for writing
   if (!file_exists($logFile)) {
@@ -130,7 +131,7 @@
   }
 
   // Opening markup
-  echo("<!-- Start CK-Gallery v1.0.1 - Created by, Chris Kankiewicz [http://web-geek.net/ck-gallery] -->\r\n");
+  echo("<!-- Start CK-Gallery v$version - Created by, Chris Kankiewicz [http://web-geek.net/ck-gallery] -->\r\n");
   echo("<div id=\"gallery-wrapper\">\r\n  <div id=\"ck-gallery\">\r\n");
 
   for ($x = $imgStart; $x < $imgEnd; $x++) {
@@ -185,11 +186,11 @@
     // Create XHTML compliant markup
     $noExt = substr($images[$x],0,strrpos($images[$x],'.'));
     $altText = str_replace("_"," ",$noExt);
-    echo "    <div class=\"gallery-box\" style=\"float: left;\"><a href=\"$filePath\" title=\"$altText\" class=\"thickbox\" rel=\"photo-gallery\"><img src=\"$thumbPath\" alt=\"$altText\" style=\"margin: 5px;\" /></a></div>\r\n";
+    echo "    <a href=\"$filePath\" title=\"$altText\" class=\"thickbox\" rel=\"photo-gallery\"><img src=\"$thumbPath\" alt=\"$altText\"/></a>\r\n";
   }
 
   // Clear float, create horizontal rule
-  echo("    <div class=\"clear\" style=\"clear: both;\"></div><div class=\"hr\"><hr /></div>\r\n");
+  echo("    <div class=\"clear\"></div><div class=\"hr\"><hr /></div>\r\n");
 
   // If pagination enabled, create page navigation
   if ($imgPerPage > 0 && $imgPerPage < $totalImages) {
@@ -198,29 +199,43 @@
 
     // Previous arrow
     $previousPage = $currentPage - 1;
-    echo("      <li style=\"float: left; list-style: none; margin: 0 5px 0 0 !important;\"".($currentPage > 1 ? "><a href=\"$pageName?page=$previousPage\">&lt;</a>" : " class=\"inactive\">&lt;")."</li>\r\n");
+    echo("      <li".($currentPage > 1 ? "><a href=\"$pageName?page=$previousPage\">&lt;</a>" : " class=\"inactive\">&lt;")."</li>\r\n");
 
     // Page links
     for ($x = 1; $x <= $totalPages; $x++) {
-      echo("      <li style=\"float: left; list-style: none; margin: 0 5px 0 0 !important;\"".($x == $currentPage ? " class=\"current-page\">$x" : "><a href=\"$pageName?page=$x\">$x</a>")."</li>\r\n");
+      echo("      <li".($x == $currentPage ? " class=\"current-page\">$x" : "><a href=\"$pageName?page=$x\">$x</a>")."</li>\r\n");
     }
 
     // Next arrow
     $nextPage = $currentPage + 1;
-    echo("      <li style=\"float: left; list-style: none; margin: 0 5px 0 0 !important;\"".($currentPage < $totalPages ? "><a href=\"$pageName?page=$nextPage\">&gt;</a>" : " class=\"inactive\">&gt;")."</li>\r\n");
+    echo("      <li".($currentPage < $totalPages ? "><a href=\"$pageName?page=$nextPage\">&gt;</a>" : " class=\"inactive\">&gt;")."</li>\r\n");
 
     echo("    </ul>\r\n");
   }
 
   // Closing markup
-  echo("    <div id=\"credit\" style=\"float: right;\">Powered by <a href=\"http://web-geek.net/ck-gallery\" target=\"_blank\">CK-Gallery</a>");
+  echo("    <div id=\"credit\">Powered by <a href=\"http://web-geek.net/ck-gallery\" target=\"_blank\">CK-Gallery</a>");
   // Display Thickbox link if site is using Thickbox
   if(file_exists("thickbox.js") || file_exists("thickbox/thickbox.js")) {
     echo(" &amp; <a href=\"http://jquery.com/demo/thickbox\" target=\"_blank\">Thickbox</a></div>\r\n");
   } else {
     echo("</div>\r\n");
   }
-  echo("    <div class=\"clear\" style=\"clear: both;\"></div>\r\n  </div>\r\n</div>\r\n");
+  
+  // Version check and notification
+  if ($verCheck == "1") {
+    $verInfo = file("http://code.web-geek.net/_version-check/ck-gallery/index.php?ver=$version");
+    $verInfo = implode($verInfo);
+    if ($verInfo == "upgrade") {
+      echo("    <div class=\"clear\"></div>\r\n");
+      echo("    <div id=\"ck-notice\">A new version of CK-Gallery is availabe. <a href=\"http://sourceforge.net/project/showfiles.php?group_id=242050&package_id=296883\" target=\"_blank\">Get the latest version here</a>.</div>");
+    } elseif ($verInfo == "development") {
+      echo("    <div class=\"clear\"></div>\r\n");
+      echo("    <div id=\"ck-notice\">This is a development version of CK-Gallery.</div>");
+    }
+  }
+  
+  echo("    <div class=\"clear\"></div>\r\n  </div>\r\n</div>\r\n");
   echo("<!-- End CK-Gallery - Licensed under the GNU Public License version 3.0 -->\r\n");
 
   fclose($log); // Close log

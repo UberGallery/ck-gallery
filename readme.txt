@@ -7,7 +7,7 @@
 
 
 Introduction
-----------------------------------------
+----------------------------------------------
 
   CK-Gallery is a simple, yet powerful, PHP photo gallery that will basically
   manage itself for you. CK-Gallery supports .jpg, .gif & .png image types, and
@@ -22,52 +22,54 @@ Introduction
   With the update to version 1.0.0 CK-Gallery now has dynamic pagination.  This
   will let users with larger galleries split the gallery up into several smaller
   pages and allow visitors to easily navigate to those pages via a small
-  navigation bar below the gallery.  Among other changes, GZ compression was
+  navigation bar below the gallery.  Among other changes, GZip compression was
   implemented on the default index.php file included with the gallery, reducing
   bandwidth and improving script execution speed significantly when active.
 
 
 Requirements
-----------------------------------------
+----------------------------------------------
 
-  Due to some of the functions used, you must have PHP version 4.0.6 or higher
-  on Linux, or version 4.3.0 on Windows. Also, you must have the PHP GD version
-  2.0.1 or later installed (2.0.28 or later is recommended).
+  Due to technical limitations of the functions used, you must be running PHP
+  version 4.0.6 or higher in a Linux environment, or version 4.3.0 on a Windows
+  environment. Also, you must have the PHP GD version 2.0.1 or later installed
+  (2.0.28 or later is recommended).
 
-  The lowest PHP version this script has been successfully tested on was a Linux
-  system running PHP version 4.3.11 and PHP GD version 2.0.28, if you've got it
-  to run on a lower version I'd like to know, please contact me.
+  The oldest PHP version this script has been successfully tested on was a Linux
+  system running PHP version 4.3.11 and PHP GD version 2.0.28, if you've tested
+  CK-Gallery successfully on an older version of Linux or on any Windows server,
+  I'd like to know, please contact me.
 
-  For more information on PHP GD, please see http://us.php.net/gd
+  For more information on PHP and PHP GD, please see http://www.php.net
 
 
-Included Files
-----------------------------------------
+Included Files/Folders
+----------------------------------------------
 
+  /gallery        - Default image directory
+  /images         - Thickbox images
+  /thickbox       - Thickbox files
   changelog.txt   - Project change log
   ck-gallery.php  - Main script
-  gallery/        - Default image directory
   gallery.css     - Gallery style sheet
   gpl_v3.txt      - Software license
-  images/         - Thickbox images
   index.php       - Contains the page markup
-  thickbox/       - Thickbox files
   readme.txt      - This readme file
 
 
 Simple Installation
-----------------------------------------
+----------------------------------------------
 
   1. Upload the entire contents of this directory to your web server in the
      directory where you would like the gallery to be displayed.
      Example: http://www.domain-name.com/photo-gallery/
   2. Upload your images to the /gallery directory.
   3. Open your web browser and navigate to the directory where you installed the
-     gallery and the script should generate thumbnails and display your pictures
+     gallery and the script should generate thumbnails and display your images.
 
 
 Install to Pre-Existing Web Page
-----------------------------------------
+----------------------------------------------
 
   1. If you wish to change the name or location of the images folder, thumbnails
      folder, or log file, or you would like to enable pagination, open
@@ -77,15 +79,15 @@ Install to Pre-Existing Web Page
      to be displayed: <?php include_once('path-to-file/ck-gallery.php'); ?>
   4. If using pagination, copy the "Pagination" portion of gallery.css into your
      own style sheet and edit it to your liking.
-  5. Open up your browser and navigate to your page, this will create the
+  5. Open up your web browser and navigate to your page, this will create the
      directory structure for you if it doesn't already exist.
   6. Upload your images to the images directory ("/gallery" by default).
   7. Refresh the page in your browser and the script should generate thumbnails
-     and display your pictures.
+     and display your images.
 
 
 Customizing your Gallery
-----------------------------------------
+----------------------------------------------
 
   The CK-Gallery comes with class and id elements already in place, this allows
   for customization of the look and feel of your gallery.  All you have to do is
@@ -95,17 +97,17 @@ Customizing your Gallery
 
   <div id="gallery-wrapper">
     <div id="ck-gallery">
-      <div class="gallery-box"><a href="#"><img src="#" alt="#" /></a></div>
-      <div class="gallery-box"><a href="#"><img src="#" alt="#" /></a></div>
-      <div class="gallery-box"><a href="#"><img src="#" alt="#" /></a></div>
+      <a href="#"><img src="#" alt="#" /></a>
+      <a href="#"><img src="#" alt="#" /></a>
+      <a href="#"><img src="#" alt="#" /></a>
     </div>
   </div>
 
   Also, here's the pagination navigation structure:
 
-  <ul>
+  <ul id="ck-pagination">
     <li class="inactive">&lt;</li>
-    <li class="current-page"><a href="?page=1">1</a></li>
+    <li class="current-page">1</li>
     <li><a href="?page=2">2</a></li>
     <li><a href="?page=3">3</a></li>
     <li><a href="?page=4">4</a></li>
@@ -114,20 +116,20 @@ Customizing your Gallery
 
 
 Pagination
-----------------------------------------
+----------------------------------------------
 
   To enable pagination, open ck-gallery.php, find "$imgPerPage = 0;" at the top
   and set this value to the number of images you would like to display per page.
 
   NOTE: If pagination is enabled, the script will generate thumbnails on a
-  per-page basis.  You do not have to worry about this though, the first time a
+  per-page basis. You do not have to worry about this though, the first time a
   visitor visits a page without thumbnails, it will automatically generate the
   thumbnails, however this may cause the page to take several seconds to load
   while this processes.
 
 
-Enabling GZip Compression
-----------------------------------------
+GZip Compression
+----------------------------------------------
 
   In order to improve the performance and reduce the bandwidth of your gallery,
   it's recomended that you enable gzip compression on the page for which your
@@ -146,8 +148,17 @@ Enabling GZip Compression
   an email noting your version of PHP and any other relevant info.
 
 
+Update Notification
+----------------------------------------------
+
+  To enable the update notification, open ck-gallery.php, find "$verCheck = 0;"
+  and chage this value to 1.  Once done, whenever an update to CK-Gallery is
+  available, a message will appear at the bottom of your gallery informing you
+  of this new version and providing a link to the new version.
+
+
 Shout Outs
-----------------------------------------
+----------------------------------------------
 
   Thanks go out to Dual <http://dualisanoob.com> for inadvertently inspiring me
   to get up off my ass and program this.
@@ -162,7 +173,7 @@ Shout Outs
 
 
 Questions/Comments
-----------------------------------------
+----------------------------------------------
 
   If you have any questions or comments, please contact me.
 
@@ -173,7 +184,7 @@ Questions/Comments
 
 
 Legal Crap
-----------------------------------------
+----------------------------------------------
 
   The CK-Gallery is licensed under the GNU General Public License version 3.0.
 
