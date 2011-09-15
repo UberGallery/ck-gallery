@@ -1,6 +1,6 @@
 /*********************************************
 *  Title:    ck-gallery.php                  *
-*  Version:  .73                             *
+*  Version:  .74                             *
 *  Author:   Chris Kankiewicz                *
 *  Email:    chris@web-geek.net              *
 *  URL:      http://web-geek.net/ck-gallery  *
@@ -101,7 +101,7 @@ Legal Crap
 
   The CK-Gallery is licensed under the GNU General Public License version 3.0.
   
-  Copyright (C) 2008  Chris Kankiewicz
+  Copyright (C) 2008 Chris Kankiewicz
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -122,6 +122,12 @@ Legal Crap
 
 Changelog
 ----------------------------------------
+
+  [ Changes to .74 ]
+
+    - Rewrote and optimized the file rename algorithm reducing script size
+    - Rearranged code order for better organization and readability
+    - Added file version to outuputted markup
 
   [ Changes to .73 ]
 
