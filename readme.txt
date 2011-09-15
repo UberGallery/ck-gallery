@@ -22,14 +22,16 @@ Introduction
   With the update to version 1.0.0 CK-Gallery now has dynamic pagination.  This
   will let users with larger galleries split the gallery up into several smaller
   pages and allow visitors to easily navigate to those pages via a small
-  navigation bar below the gallery.
+  navigation bar below the gallery.  Among other changes, GZ compression was
+  implemented on the default index.php file included with the gallery, reducing
+  bandwidth and improving script execution speed significantly when active.
 
 
 Requirements
 ----------------------------------------
 
   Due to some of the functions used, you must have PHP version 4.0.6 or higher
-  on Linux, or verstion 4.3.0 on Windows. Also, you must have the PHP GD version
+  on Linux, or version 4.3.0 on Windows. Also, you must have the PHP GD version
   2.0.1 or later installed (2.0.28 or later is recommended).
 
   The lowest PHP version this script has been successfully tested on was a Linux
@@ -64,19 +66,6 @@ Simple Installation
      gallery and the script should generate thumbnails and display your pictures
 
 
-Pagination
-----------------------------------------
-
-  To enable pagination, open ck-gallery.php, find "$imgPerPage = 0;" at the top
-  and set this value to the number of images you would like to display per page.
-
-  NOTE: If pagination is enabled, the script will generate thumbnails on a
-  per-page basis.  You do not have to worry about this though, the first time a
-  visitor visits a page without thumbnails, it will automatically generate the
-  thumbnails, however this may cause the page to take several seconds to load
-  while this processes.
-
-
 Install to Pre-Existing Web Page
 ----------------------------------------
 
@@ -93,22 +82,6 @@ Install to Pre-Existing Web Page
   6. Upload your images to the images directory ("/gallery" by default).
   7. Refresh the page in your browser and the script should generate thumbnails
      and display your pictures.
-
-  8. (Optional) In order to improve the performance and reduce the bandwidth of
-     your gallery, it's recomended that you enable gzip compression on the page
-     for which your gallery is being displayed. In order to accomplish this,
-     place the following code at the very beginning of the page to which the
-     gallery will be displayed:
-
-     <?php ob_start("ob_gzhandler"); ?>
-
-     and the following to the end of that page:
-
-     <?php ob_flush(); ?>
-
-     These lines must be the very fist and very last things the browser loads or
-     they will cause errors.  See the index.php file included with the gallery
-     for an example of how this code works.
 
 
 Customizing your Gallery
@@ -128,27 +101,49 @@ Customizing your Gallery
     </div>
   </div>
 
-  Also, the pagination structure is as follows:
+  Also, here's the pagination navigation structure:
 
-  <ul id="ck-pagination">
+  <ul>
     <li class="inactive">&lt;</li>
     <li class="current-page"><a href="?page=1">1</a></li>
     <li><a href="?page=2">2</a></li>
     <li><a href="?page=3">3</a></li>
-    <li><a href="?page=4">&gt;</a></li>
+    <li><a href="?page=4">4</a></li>
     <li><a href="?page=2">&gt;</a></li>
   </ul>
 
 
-Questions/Comments
+Pagination
 ----------------------------------------
 
-  If you have any questions or comments, please contact me.
+  To enable pagination, open ck-gallery.php, find "$imgPerPage = 0;" at the top
+  and set this value to the number of images you would like to display per page.
 
-    EMAIL: Chris@Web-Geek.net
-    AIM:   PHLAK2600
-    MSN:   Chris@ChronoStudios.com
-    YIM:   ChrisKankiewicz
+  NOTE: If pagination is enabled, the script will generate thumbnails on a
+  per-page basis.  You do not have to worry about this though, the first time a
+  visitor visits a page without thumbnails, it will automatically generate the
+  thumbnails, however this may cause the page to take several seconds to load
+  while this processes.
+
+
+Enabling GZip Compression
+----------------------------------------
+
+  In order to improve the performance and reduce the bandwidth of your gallery,
+  it's recomended that you enable gzip compression on the page for which your
+  gallery is being displayed. In order to accomplish this, place the following
+  code at the very beginning of the page to which the gallery will be displayed:
+
+    <?php substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') ?
+    ob_start("ob_gzhandler") : ob_start(); ?>
+
+  This code must be the very fist thing the browser loads or it will cause
+  errors. See the index.php file included with the gallery for an example of how
+  this code is layed out.
+
+  NOTE: This is already enabled in the default index.php, if you are getting
+  errors related to this, remove the first line of index.php and please send me
+  an email noting your version of PHP and any other relevant info.
 
 
 Shout Outs
@@ -160,10 +155,21 @@ Shout Outs
   Also, thanks to Penguin <http://www.blastwavelabs.com> for answering questions
   throughout the entire development process and for some bug testing.
 
-  Thanks also go to Nak <http://www.wetwarehacks.com> for rigorous beta testing
-  helping me iron out a number of bugs and fix backwards capabilities.
+  Thanks also to Nak <http://www.wetwarehacks.com> for rigorous beta testing
+  that helped me iron out a number of bugs and fix backwards capabilities.
 
   Lastly, thanks to the StackOverflow.com community for help here and there.
+
+
+Questions/Comments
+----------------------------------------
+
+  If you have any questions or comments, please contact me.
+
+    EMAIL: Chris@Web-Geek.net
+    AIM:   PHLAK2600
+    MSN:   Chris@ChronoStudios.com
+    YIM:   ChrisKankiewicz
 
 
 Legal Crap
@@ -186,6 +192,6 @@ Legal Crap
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-  Thick box is not owned, operated, developed or maintained by Chris Kankiewicz,
-  and is in no way affiliated with CK-Gallery.  To find out more information on
-  Thickbox, please visit http://jquery.com/demo/thickbox
+  Thick box is not owned, operated, developed or maintained by Chris Kankiewicz
+  and is in no way affiliated with CK-Gallery. For more information on Thickbox,
+  please visit <http://jquery.com/demo/thickbox>.

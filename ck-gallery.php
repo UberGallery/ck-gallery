@@ -130,7 +130,7 @@
   }
 
   // Opening markup
-  echo("<!-- Start CK-Gallery v1.0.0 - Created by, Chris Kankiewicz [http://web-geek.net/ck-gallery] -->\r\n");
+  echo("<!-- Start CK-Gallery v1.0.1 - Created by, Chris Kankiewicz [http://web-geek.net/ck-gallery] -->\r\n");
   echo("<div id=\"gallery-wrapper\">\r\n  <div id=\"ck-gallery\">\r\n");
 
   for ($x = $imgStart; $x < $imgEnd; $x++) {
@@ -194,7 +194,7 @@
   // If pagination enabled, create page navigation
   if ($imgPerPage > 0 && $imgPerPage < $totalImages) {
     $pageName = basename($_SERVER["PHP_SELF"]); // Get current page file name
-    echo("    <ul id=\"ck-pagination\" style=\"margin: 0; padding: 0;\">\r\n");
+    echo("    <ul id=\"ck-pagination\" style=\"margin: 0 !important; padding: 0 !important;\">\r\n");
 
     // Previous arrow
     $previousPage = $currentPage - 1;
@@ -221,7 +221,7 @@
     echo("</div>\r\n");
   }
   echo("    <div class=\"clear\" style=\"clear: both;\"></div>\r\n  </div>\r\n</div>\r\n");
-  echo("<!-- End CK-Gallery - Licensed under the GNU Public License version 3.0 -->");
+  echo("<!-- End CK-Gallery - Licensed under the GNU Public License version 3.0 -->\r\n");
 
   fclose($log); // Close log
 

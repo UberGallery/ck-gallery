@@ -1,6 +1,15 @@
 CK-Gallery Change Log
 ----------------------------------------
 
+  [ Changes to 1.0.1 ]
+
+    - Style changes to fix a display bug with the pagination navigation when the
+      script is installed to a pre-existing web page
+    - Changed PHP compression code
+    - Updated Readme to reflect these changes
+    - Miscellaneous index.php changes
+
+
   [ Changes to 1.0.0 ]
 
     - HOLY CRAP, PAGINATION!!!
