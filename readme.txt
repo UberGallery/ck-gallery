@@ -1,6 +1,6 @@
 /*********************************************
 *  Title:    ck-gallery.php                  *
-*  Version:  .77                             *
+*  Version:  .78                             *
 *  Author:   Chris Kankiewicz                *
 *  Email:    chris@web-geek.net              *
 *  URL:      http://web-geek.net/ck-gallery  *
@@ -122,6 +122,10 @@ Legal Crap
 
 Change Log
 ----------------------------------------
+
+  [ Changes to .78 ]
+
+      - Minor markup output fix
 
   [ Changes to .77 ]
 
