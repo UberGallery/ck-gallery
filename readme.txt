@@ -1,6 +1,5 @@
 /*********************************************
 *  Title:    ck-gallery.php                  *
-*  Version:  .79                             *
 *  Author:   Chris Kankiewicz                *
 *  Email:    chris@web-geek.net              *
 *  URL:      http://web-geek.net/ck-gallery  *
@@ -23,6 +22,7 @@ Introduction
 Included Files
 ----------------------------------------
 
+  changelog.txt   - Project change log
   ck-gallery.php  - Main script
   gallery/        - Default image directory
   gallery.css     - Gallery style sheet
@@ -39,7 +39,7 @@ Simple Installation
   1. Upload the entire contents of this directory to your web server in the 
      directory where you would like the gallery to be displayed.
      Example: http://www.domain-name.com/photo-gallery/
-  2. Upload your images to the gallery/ directory.
+  2. Upload your images to the /gallery directory.
   3. Navigate to the directory where you installed the gallery and the script 
      should generate thumbnails and display your pictures.
 
@@ -94,6 +94,8 @@ Shout Outs
   
   Also, thanks to Penguin <http://www.blastwavelabs.com> for answering questions
   throughout the entire development process!
+  
+  Lastly, thanks to the StackOverflow.com community for help here and there.
 
 
 Legal Crap
@@ -118,53 +120,3 @@ Legal Crap
   
   
   For details on Thickbox, please visit http://jquery.com/demo/thickbox
-  
-
-Change Log
-----------------------------------------
-
-  [ Changes to .79 ]
-
-      - Script will delete thumbnails not of the specified dimensions
-      - File rename algorithm slightly adjusted
-      - Minor markup output fix
-      - Style Sheet tweaks
-
-  [ Changes to .78 ]
-
-      - Minor markup output fix
-
-  [ Changes to .77 ]
-
-      - Minor code optimizations for size and readability
-      - Minor edits/corrections to this readme
-  
-  [ Changes to .76 ]
-
-    - Check for thickbox.js existence, if it exists will display a link to the 
-      thickbox web page, if file doesn't exist link will not be display
-    - Added variable for image dimensions
-    - Minor code optimizations
-  
-  [ Changes to .75 ]
-
-    - Minor markup output fix
-
-  [ Changes to .74 ]
-
-    - Rewrote and optimized the file rename algorithm reducing script size
-    - Rearranged code order for better organization and readability
-    - Added file version to outputted markup
-
-  [ Changes to .73 ]
-
-    - Changed project license to GNU Public License version 3.0
-      http://www.opensource.org/licenses/gpl-3.0.html
-    - Updated CK-Gallery reference URL
-    - Added this readme.txt file
-  
-  
-  [ Changes to .72 ]
-
-    - Log file now keeps old info for future viewing
-    - Log file will not be written to if the script doesn't do anything
