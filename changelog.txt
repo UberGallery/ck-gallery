@@ -1,0 +1,13 @@
+****************************************
+*  Title:     CK-Gallery.php           *
+*  Version:   .72                      *
+*  Author:    Chris Kankiewicz         *
+*  Email:     chris@web-geek.net       *
+*  URL:       http://www.web-geek.net  *
+****************************************
+
+
+----- Changes in .72 -------------------
+
+  - Log file will now keep old info for future viewing
+  - Log file will not be written to if the script doesn't do anything
