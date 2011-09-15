@@ -1,7 +1,7 @@
 <?php
 
-  $galeryDir = "gallery";           // Original images directory (No trailing slash!)
-  $thumbsDir = "$galeryDir/thumbs"; // Thumbnails directory (No trailing slash!)
+  $galleryDir = "gallery";           // Original images directory (No trailing slash!)
+  $thumbsDir = "$galleryDir/thumbs"; // Thumbnails directory (No trailing slash!)
   $logFile   = "gallery-log.txt";   // Directory/Name of log file
   $thumbSize = 100;                 // Thumbnail width/height
 
@@ -50,7 +50,7 @@
         return true;
       } else {
         return false;
-      }
+    }
   }
 
   // END FUNCTIONS
@@ -65,9 +65,9 @@
   }
 
   // Create image directory if it doesn't exist
-  if (file_exists($galeryDir) == false) {
-    mkdir($galeryDir);
-    fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $galeryDir\n");
+  if (file_exists($galleryDir) == false) {
+    mkdir($galleryDir);
+    fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $galleryDir\n");
   }
 
   // Create thumbnail directory if it doesn't exist
@@ -76,29 +76,29 @@
     fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $thumbsDir\n");
   }
   
-  // Beer! The cause of, and solution to, all of lifes problems!
+  // Alcohol! The cause of, and solution to, all of life's problems!
   
   // Opening markup
-  echo("<!-- Start CK-Gallery v .82 - Created by, Chris Kankiewicz [http://web-geek.net/ck-gallery] -->\n");
+  echo("<!-- Start CK-Gallery v .83 - Created by, Chris Kankiewicz [http://web-geek.net/ck-gallery] -->\n");
   echo("<div id=\"gallery-wrapper\">\n  <div id=\"ck-gallery\">\n");
   
-  $dir = opendir($galeryDir);
+  $dir = opendir($galleryDir);
   while (($file = readdir($dir)) !== false) {
     // Converts file extensions to all lowercase
     if (strrpos($file,'.JPG',1) || strrpos($file,'.GIF',1) || strrpos($file,'.PNG',1)) {
-      $srcfile = "$galeryDir/$file";
+      $srcfile = "$galleryDir/$file";
       $filearray = explode(".",$file);
       $pos = count($filearray) - 1;
       $filearray[$pos] = strtolower($filearray[$pos]);
       $file = implode(".",$filearray);
-      $dstfile = "$galeryDir/$file";
+      $dstfile = "$galleryDir/$file";
       rename($srcfile,$dstfile); // I hate Windows
       fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  RENAMED: $srcfile to $dstfile\n");
     }
     // Create thumbnail if it doesn't already exist
-    if (file_exists("$thumbsDir/$file") == false) {
-      if (isImage($file)) {
-        createThumb("$galeryDir/$file", "$thumbsDir/$file",$thumbSize);
+    if (isImage($file)) {
+      if (file_exists("$thumbsDir/$file") == false) {
+        createThumb("$galleryDir/$file", "$thumbsDir/$file",$thumbSize);
         fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  CREATED: $thumbsDir/$file\n");
       }
     }
@@ -106,7 +106,7 @@
     if (isImage($file)) {
       $noExt = substr($file,0,strrpos($file,'.'));
       $altText = str_replace("_"," ",$noExt);
-      echo "    <div class=\"gallery-box\" style=\"float: left;\"><a href=\"$galeryDir/$file\" title=\"$altText\" class=\"thickbox\" rel=\"photo-gallery\"><img src=\"$thumbsDir/$file\" alt=\"$altText\" style=\"margin: 5px;\" /></a></div>\n";
+      echo "    <div class=\"gallery-box\" style=\"float: left;\"><a href=\"$galleryDir/$file\" title=\"$altText\" class=\"thickbox\" rel=\"photo-gallery\"><img src=\"$thumbsDir/$file\" alt=\"$altText\" style=\"margin: 5px;\" /></a></div>\n";
     }
   }
 
@@ -126,7 +126,7 @@
   while (($file = readdir($dir)) !== false) {
     if ($file !== "." && $file !== "..") {
       $size = getimagesize("$thumbsDir/$file");
-      if (file_exists("$galeryDir/$file") == false || $size[0] !== $thumbSize) {
+      if (file_exists("$galleryDir/$file") == false || $size[0] !== $thumbSize) {
         unlink("$thumbsDir/$file");
         fwrite($log,date("Y-m-d")." @ ".date("H:i:s")."  REMOVED: $thumbsDir/$file\n");
       }

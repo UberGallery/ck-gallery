@@ -1,6 +1,13 @@
 CK-Gallery Change Log
 ----------------------------------------
 
+  [ Changes to .83 ]
+  
+    - Modified thumbnail creation algorithm to check if the file is an image
+      before checking if the file exists in the thumbnail dir
+    - Miscellaneous spelling corrections
+    - Miscellaneous formatting corrections
+
   [ Changes to .82 ]
   
     - Merged file extension conversion, thumbnail generation and markup output 
