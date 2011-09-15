@@ -1,14 +1,22 @@
 CK-Gallery Change Log
 ----------------------------------------
 
+  [ Changes to 1.2.0 ]
+
+    - Added time based page caching option
+    - New gallery documentation, can be found in the "docs" folder
+    - Relocated thickbox loading gif to the thickbox folder
+    - Lowered default jpg image quality from 80 to 75
+    - Minor formatting fixes
+
   [ Changes to 1.1.1 ]
-  
+
     - URLs now point to new CK-Gallery page, http://code.web-geek.net/ck-gallery
-    - Error messages will no longer be displayed if the update check can't 
+    - Error messages will no longer be displayed if the update check can't
       connect to the update site
     - Added title text on pagination link
     - Moved functions to bottom of file
-    - Minor code chages
+    - Minor code changes
 
   [ Changes to 1.1.0 ]
 
@@ -16,7 +24,7 @@ CK-Gallery Change Log
     - Moved most in-line CSS into gallery.css reducing generated code
     - Corrections/changes to the Readme for this version
     - Other minor style sheet changes
-  
+
 
   [ Changes to 1.0.1 ]
 
