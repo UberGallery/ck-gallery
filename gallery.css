@@ -1,0 +1,45 @@
+/************
+*  GALLERY  *
+************/
+
+body {
+  background-color: #323232;
+  }
+
+#gallery-wrapper {
+  width: 100%;
+  }
+
+#ck-gallery {
+  background-color: #969696;
+  margin: 0 auto;
+  padding: 10px;
+  width: 708px; /* Limit output width here */
+  }
+
+#ck-gallery .gallery-box {
+  float: left;
+  }
+
+#ck-gallery img {
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  height: 100px;
+  margin: 5px;
+  padding: 3px;
+  width: 100px;
+  }
+
+#ck-gallery img:hover {
+  border: 1px solid #000;
+  }
+
+#credit {
+  float: right;
+  font-family: verdana, tahoma, arial, sans serif;
+  }
+
+.clear {
+  height: 0px !important;
+  clear: both;
+  }
