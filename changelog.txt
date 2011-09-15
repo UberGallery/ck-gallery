@@ -1,32 +1,38 @@
 CK-Gallery Change Log
 ----------------------------------------
 
+  [ Changes to .81 ]
+  
+    - Underscores in alt text and title text are now replaced with spaces
+    - File extension are now removed from alt text and title text
+
+
   [ Changes to .80 ]
 
-      - Lots of code optimization for performance and readability (Thanks to 
-        the StackOverflow.com community for their help here!)
-      - Minor markup output changes
-      - Moved the change log to its own file
+    - Lots of code optimization for performance and readability (Thnaks to 
+      the StackOverflow.com community for their help here!)
+    - Minor markup output changes
+    - Moved the change log to its own file
 
-      
+
   [ Changes to .79 ]
 
-      - Script will delete thumbnails not of the specified dimensions allowing
-        you to change the image dimensions without having to delete "/thumbs"
-      - File rename algorithm slightly adjusted
-      - Minor markup output fix
-      - Style sheet tweaks
+    - Script will delete thumbnails not of the specified dimensions allowing
+      you to change the image dimensions without having to delete "/thumbs"
+    - File rename algorithm slightly adjusted
+    - Minor markup output fix
+    - Style sheet tweaks
 
-      
+
   [ Changes to .78 ]
 
-      - Minor markup output fix
+    - Minor markup output fix
 
-      
+
   [ Changes to .77 ]
 
-      - Minor code optimizations for size and readability
-      - Minor edits/corrections to the readme
+    - Minor code optimizations for size and readability
+    - Minor edits/corrections to the readme
   
   
   [ Changes to .76 ]
