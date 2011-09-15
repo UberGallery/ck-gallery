@@ -1,6 +1,6 @@
 /*********************************************
 *  Title:    ck-gallery.php                  *
-*  Version:  .76                             *
+*  Version:  .77                             *
 *  Author:   Chris Kankiewicz                *
 *  Email:    chris@web-geek.net              *
 *  URL:      http://web-geek.net/ck-gallery  *
@@ -14,7 +14,7 @@ Introduction
   manage itself for you. CK-Gallery supports .jpg, .gif & .png image types, and 
   will automatically creates thumbnails on the fly. The main feature of this 
   gallery is it automatically outputs XHTML compliant markup for inclusion on a 
-  webpage. The CK-Gallery will also automatically prune it's thumbnails, so when 
+  web page. The CK-Gallery will also automatically prune it's thumbnails, so when 
   you delete an image from the images folder, it will delete the corresponding 
   thumbnail. The gallery also creates a log file for reference and debugging.
   The CK-Gallery is licensed under the GNU General Public License version 3.0.
@@ -44,10 +44,10 @@ Simple Installation
      should generate thumbnails and display your pictures.
 
 
-Custom Install to Pre-Existing Webpage 
+Install to Pre-Existing Web Page
 ----------------------------------------
 
-  1. If you wish to change the name or loacation of the images, thumbs, or log 
+  1. If you wish to change the name or location of the images, thumbs, or log 
      file, open ck-gallery.php and edit the $gallerydir, $thumbsdir, and 
      $logfile variables found at the top of the script.
   2. Upload ck-gallery.php to your web server.
@@ -65,7 +65,7 @@ Customizing your Gallery
   
   The CK-Gallery comes with style elements already set up, this allows for 
   customization of the look and feel of your gallery.  All you have to do is 
-  add a CSS stylesheet and you'll be off in no time.
+  add a CSS style sheet and you'll be off in no time.
 
   This is the typical structure of the HTML output:
 
@@ -117,16 +117,21 @@ Legal Crap
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
   
   
-  For legal details on Thickbox, please visit http://jquery.com/demo/thickbox
+  For details on Thickbox, please visit http://jquery.com/demo/thickbox
   
 
-Changelog
+Change Log
 ----------------------------------------
 
+  [ Changes to .77 ]
+
+      - Minor code optimizations for size and readability
+      - Minor edits/corrections to this readme
+  
   [ Changes to .76 ]
 
-    - Check for thickbox.js existance, if it exists will display a link to the 
-      thickbox webpage, if file doesn't exist link will not be display
+    - Check for thickbox.js existence, if it exists will display a link to the 
+      thickbox web page, if file doesn't exist link will not be display
     - Added variable for image dimensions
     - Minor code optimizations
   
@@ -138,7 +143,7 @@ Changelog
 
     - Rewrote and optimized the file rename algorithm reducing script size
     - Rearranged code order for better organization and readability
-    - Added file version to outuputted markup
+    - Added file version to outputted markup
 
   [ Changes to .73 ]
 
